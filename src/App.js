@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { useSelector } from 'react-redux';
+import SignInForm from './components/signinForm';
+import WelcomePage from './components/welcomePage';
 
-function App() {
+const App = () => {
+  const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {isAuthenticated ? <WelcomePage /> : <SignInForm />}
     </div>
   );
-}
+};
 
 export default App;
