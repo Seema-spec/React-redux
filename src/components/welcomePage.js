@@ -90,7 +90,7 @@ return (
           />
         </div>
         <button className="button" type="submit">Submit</button>
-        <button className="button" >Sign Out</button>
+        <button className="button" onClick={handleSignOut} >Sign Out</button>
       </form>
       </div>
       <UserTable data ={userData}/>
