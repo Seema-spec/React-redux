@@ -2,7 +2,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteUser } from "../db/api";
-import "./common.css"
 
 const UserRow = ({ user }) => {
   const dispatch = useDispatch();

@@ -1,26 +1,17 @@
 .user-table {
     border-collapse: collapse;
-    width: 50%; 
-    position:inherit;
-    overflow: auto;
+    width: 90%; 
   }
   
   .user-table th,
   .user-table td {
-    border: 1px solid #ccc; 
+    border: 1px solid #101010; /* Border style */
     padding: 8px; 
   }
   
-  .user-table th {
-    background-color: #f2f2f2; 
-  }
-  
-  .user-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9; 
-  }
-  
+  /* Adjust the table height if needed */
   .user-table {
-    max-height: 400px; 
-    overflow-y: auto; 
+    max-height: 400px; /* Set the desired maximum height */
+    overflow-y: auto; /* Enable vertical scrolling if table content overflows */
   }
   

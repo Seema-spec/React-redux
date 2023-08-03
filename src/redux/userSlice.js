@@ -1,12 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { deleteUser,fetchUserData } from '../db/api';
+import axios from 'axios';
+import { fetchUserData,deleteUser } from '../db/api';
+
+
 
 const userSlice = createSlice({
   name: 'user',
   initialState: {
     email: '',
     isAuthenticated: false,
-    userData: [], 
+    userData: [],
   },
   reducers: {
     signInUser(state, action) {

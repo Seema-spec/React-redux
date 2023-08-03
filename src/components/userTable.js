@@ -2,10 +2,8 @@
 import React from "react";
 import { useTable } from "react-table";
 import UserRow from "./userRow";
-import "./userTable.css";
-
+import './userTable.css'
 const UserTable = ({ data }) => {
-    console.log(data,"data");
   const columns = React.useMemo(
     () => [
       {
@@ -22,7 +20,7 @@ const UserTable = ({ data }) => {
       },
       {
         Header: "Action",
-        accessor: "", 
+        accessor: "", // The phone field from the user data
       },
     ],
     []
@@ -37,10 +35,10 @@ const UserTable = ({ data }) => {
   } = useTable({ columns, data });
 
   return (
-    <table {...getTableProps()} className="user-table" >
+    <table {...getTableProps()} className="user-table">
       <thead>
         {headerGroups.map((headerGroup) => (
-          <tr {...headerGroup.getHeaderGroupProps()} >
+          <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
               <th {...column.getHeaderProps()}>{column.render("Header")}</th>
             ))}

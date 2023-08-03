@@ -1,15 +1,21 @@
 {
   "users": [
     {
-      "name": "rashmi",
-      "email": "rashmi@gmail.com",
+      "name": "seema",
+      "email": "seema@gmail.com",
+      "phone": "1234567890",
+      "id": 1
+    },
+    {
+      "name": "seema",
+      "email": "arya@gmail.com",
       "phone": "1234567890",
       "id": 2
     },
     {
-      "name": "seema",
-      "email": "ary@gmail.com",
-      "phone": "134567890",
+      "name": "Rashmi Arya",
+      "email": "rashmi@gmail.com",
+      "phone": "07505628806",
       "id": 3
     },
     {
@@ -17,12 +23,6 @@
       "email": "pankaj@gmail.com",
       "phone": "1234567890",
       "id": 4
-    },
-    {
-      "name": "pankaj",
-      "email": "pankaj@gmail.com",
-      "phone": "1234567890",
-      "id": 5
     }
   ]
 }
