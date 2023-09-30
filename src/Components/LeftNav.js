@@ -3,77 +3,93 @@ import { Explore, Left_Nav, Subscriptions } from "./Constant";
 import styles from '../Components/Common.module.scss';
 
 const LeftNav = () => {
-    const [activeIndexLeftNav, setActiveIndexLeftNav] = useState(null);
-    const [activeIndexSubscriptions, setActiveIndexSubscriptions] = useState(null);
-    const [activeIndexExplore, setActiveIndexExplore] = useState(null);
+    const [activeIndex, setActiveIndex] = useState(null);
+    const [showSecondDiv, setShowSecondDiv] = useState(false);
 
-    const handleNavClick = (index, section) => {
-        switch (section) {
-            case 'leftNav':
-                setActiveIndexLeftNav(index);
-                break;
-            case 'subscriptions':
-                setActiveIndexSubscriptions(index);
-                break;
-            case 'explore':
-                setActiveIndexExplore(index);
-                break;
-            default:
-                break;
-        }
+    const handleNavClick = (index) => {
+        setActiveIndex(index);
     };
+
+    useEffect(() => {
+        const handleResize = () => {
+            const screenWidth = window.innerWidth;
+
+            if (screenWidth <= 1440) {
+                setShowSecondDiv(true);
+            } else {
+                setShowSecondDiv(false);
+            }
+        };
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     return (
         <div className={styles.nav_bar}>
-            <div className={`${styles.leftNav_container} first-div`}>
-                {/* LeftNav section */}
-                {Left_Nav.map((nav, index) => (
-                    <div key={index}>
-                        <div
-                            className={activeIndexLeftNav === index ? styles.inner_nav_active : styles.inner_nav}
-                            onClick={() => handleNavClick(index, 'leftNav')}
-                        >
-                            <img src={nav.img} alt={nav.name} />
-                            {nav.name}
+            {showSecondDiv && (
+                <div className={`${styles.leftNav_container} second-div`}>
+                    {Left_Nav.map((nav, index) => (
+                        <div key={index}>
+                            <div
+                                className={activeIndex === index ? styles.inner_nav_active : styles.inner_nav}
+                                onClick={() => handleNavClick(index)}
+                            >
+                                <img src={nav.img} alt={nav.name} />
+                            </div>
                         </div>
-                        {(index === 2 || index === 7) ? (
-                            <div className={styles.line}></div>
-                        ) : null}
+                    ))}
+                </div>
+            )}
+            {!showSecondDiv && (
+                <div className={`${styles.leftNav_container} first-div`}>
+                    {Left_Nav.map((nav, index) => (
+                        <div key={index}>
+                            <div
+                                className={activeIndex === index ? styles.inner_nav_active : styles.inner_nav}
+                                onClick={() => handleNavClick(index)}
+                            >
+                                <img src={nav.img} alt={nav.name} />
+                                {nav.name}
+                            </div>
+                            {(index === 2 || index === 7) ? (
+                                <div className={styles.line}></div>
+                            ) : null}
+                        </div>
+                    ))}
+                    <div>
+                        <p className={styles.title}>Subscriptions</p>
+                        {Subscriptions.map((nav, index) => (
+                            <div key={index}>
+                                <div className={activeIndex === index ? styles.inner_nav_active : styles.inner_nav}
+                                    onClick={() => handleNavClick(index)}
+                                >
+                                    <img src={nav.img} alt={nav.name} />
+                                    <p>{nav.name}</p>
+                                </div>
+                            </div>
+                        ))}
+                        <div className={styles.line}></div>
                     </div>
-                ))}
-
-                {/* Subscriptions section */}
-                <div>
-                    <p className={styles.title}>Subscriptions</p>
-                    {Subscriptions.map((nav, index) => (
-                        <div key={index}>
-                            <div className={activeIndexSubscriptions === index ? styles.inner_nav_active : styles.inner_nav}
-                                onClick={() => handleNavClick(index, 'subscriptions')}
-                            >
-                                <img src={nav.img} alt={nav.name} />
-                                <p>{nav.name}</p>
+                    <div>
+                        <p className={styles.title2}>Explore</p>
+                        {Explore.map((nav, index) => (
+                            <div key={index}>
+                                <div className={activeIndex === index ? styles.inner_nav_active : styles.inner_nav}
+                                    onClick={() => handleNavClick(index)}
+                                >
+                                    <img src={nav.img} alt={nav.name} />
+                                    <p>{nav.name}</p>
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                    <div className={styles.line}></div>
+                        ))}
+                        <div className={styles.line}></div>
+                    </div>
                 </div>
-
-                {/* Explore section */}
-                <div>
-                    <p className={styles.title2}>Explore</p>
-                    {Explore.map((nav, index) => (
-                        <div key={index}>
-                            <div className={activeIndexExplore === index ? styles.inner_nav_active : styles.inner_nav}
-                                onClick={() => handleNavClick(index, 'explore')}
-                            >
-                                <img src={nav.img} alt={nav.name} />
-                                <p>{nav.name}</p>
-                            </div>
-                        </div>
-                    ))}
-                    <div className={styles.line}></div>
-                </div>
-            </div>
+            )}
         </div>
     )
 }
