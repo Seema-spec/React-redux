@@ -87,7 +87,7 @@
 .nav_bar{
     width: 20%;
     
-    @media (max-width: 1440px){
+    @media (max-width: 1200px){
         width:3%
     }
 }
@@ -102,7 +102,7 @@
     margin: 10px;
     margin: -9px 9px 0px 0px;
 
-    @media (max-width: 1440px){
+    @media (max-width: 1200px){
         width:20%
     }
 }
@@ -264,7 +264,7 @@ font-size: calc(0.5rem + 0.7vw);
     overflow: hidden;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1200px) {
     .second-div {
       display: block; 
     }
@@ -274,7 +274,7 @@ font-size: calc(0.5rem + 0.7vw);
     }
   }
 
-  
+
 .img_icon{
 
     img{

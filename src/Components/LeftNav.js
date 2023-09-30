@@ -14,7 +14,7 @@ const LeftNav = () => {
         const handleResize = () => {
             const screenWidth = window.innerWidth;
 
-            if (screenWidth <= 1440) {
+            if (screenWidth <= 1200) {
                 setShowSecondDiv(true);
             } else {
                 setShowSecondDiv(false);
