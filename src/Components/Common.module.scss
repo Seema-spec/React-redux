@@ -158,10 +158,11 @@
     }
     @media screen  and (min-width:300px) and (max-width:750px){
         margin: 0px;
+        background-color: white;
         img{
             width: 12px;
             height: 2vh;
-            padding: 8px;
+            padding: 15px;
         }
 
     }
@@ -180,6 +181,16 @@
         width: 20px;
         height: 3vh;
         padding: 15px;
+    }
+    @media screen  and (min-width:300px) and (max-width:750px){
+        margin: 0px;
+        background-color: white;
+        img{
+            width: 12px;
+            height: 2vh;
+            padding: 15px;
+        }
+
     }
 }
 .line{
